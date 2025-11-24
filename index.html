@@ -130,6 +130,32 @@
     .pronounce-btn:hover {
       background: #0984e3;
     }
+
+    /* 打印链接样式 */
+    .print-link {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .print-link a {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #ff6b6b;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background 0.3s;
+    }
+    .print-link a:hover {
+      background: #ff5252;
+    }
+    .print-link p {
+      color: #fff;
+      font-size: 0.9em;
+      margin-top: 10px;
+      opacity: 0.8;
+    }
   </style>
 </head>
 <body>
@@ -166,6 +192,12 @@
     <h2 style="color:white; text-align:center; margin-bottom:25px;">📚 单词、词组与翻译</h2>
 
     <div id="wordsContainer"></div>
+
+    <!-- 🖨️ 打印链接 -->
+    <div class="print-link">
+      <a href="001Print.html">🖨️ 打印本页单词卡片</a>
+      <p>（将跳转至可打印的 A4 卡片版）</p>
+    </div>
   </div>
 
   <script>
