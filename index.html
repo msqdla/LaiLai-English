@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>🎬 疯狂动物城 · 单词发音学习</title>
+  <title>🎬 疯狂动物城 · 单词与词组学习</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -66,40 +66,66 @@
     /* 单词卡片 */
     .word-card {
       background: white;
-      border-radius: 14px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .word-info {
-      flex: 1;
+      border-radius: 16px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
     }
     .word-main {
-      font-size: 1.8em;
+      font-size: 1.9em;
       font-weight: bold;
       color: #2d3436;
+      margin-bottom: 6px;
     }
     .phonetic {
       color: #636e72;
-      font-size: 1.1em;
-      margin: 6px 0;
+      font-size: 1.15em;
+      margin-bottom: 12px;
     }
     .meaning {
       color: #00b894;
+      font-size: 1.1em;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .phrases-section {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px dashed #eee;
+    }
+    .phrases-title {
+      font-weight: bold;
+      color: #e17055;
+      margin-bottom: 10px;
       font-size: 1.05em;
+    }
+    .phrase-item {
+      background: #f8f9fa;
+      padding: 10px 14px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+      font-size: 1.05em;
+      color: #2d3436;
+      display: flex;
+      justify-content: space-between;
+    }
+    .phrase-en {
+      font-weight: bold;
+      font-family: monospace;
+    }
+    .phrase-zh {
+      color: #27ae60;
+      font-style: italic;
     }
     .pronounce-btn {
       background: #74b9ff;
       color: white;
       border: none;
-      padding: 10px 18px;
+      padding: 10px 20px;
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
-      white-space: nowrap;
+      margin-top: 15px;
     }
     .pronounce-btn:hover {
       background: #0984e3;
@@ -109,7 +135,7 @@
 <body>
   <div class="container">
     <header>
-      <h1>🐰 疯狂动物城 · 单词发音学习</h1>
+      <h1>🐰 疯狂动物城 · 单词与词组学习</h1>
     </header>
 
     <!-- 🎬 前三句台词 -->
@@ -126,7 +152,7 @@
         </div>
       </div>
 
-      <!-- 🔘 整段台词一个视频 -->
+      <!-- 🔘 视频 -->
       <div class="video-container">
         <video controls poster="https://via.placeholder.com/800x450/e0e0e0/000000?text=Zootopia+Clip">
           <source src="https://lailai-english.oss-cn-beijing.aliyuncs.com/LaiLai-English-001.mp4" type="video/mp4">
@@ -136,43 +162,145 @@
       </div>
     </div>
 
-    <!-- 🔤 单词列表 -->
-    <h2 style="color:white; text-align:center; margin-bottom:20px;">🔊 单词发音练习</h2>
+    <!-- 🔤 单词 + 词组（含翻译） -->
+    <h2 style="color:white; text-align:center; margin-bottom:25px;">📚 单词、词组与翻译</h2>
 
-    <div id="wordsContainer">
-      <!-- 单词卡片将由 JavaScript 动态生成 -->
-    </div>
+    <div id="wordsContainer"></div>
   </div>
 
   <script>
-    // 单词数据库：包含音标和释义
+    // 所有词组的统一翻译映射（避免重复）
+    const phraseTranslations = {
+      "turns out": "原来；结果是",
+      "real life": "现实生活",
+      "a little bit": "一点点；稍微",
+      "more complicated than...": "比……更复杂",
+      "bumper sticker": "保险杠贴纸（常印有标语）",
+      "is messy": "是混乱的"
+    };
+
+    // 单词数据
     const words = [
-      { word: "turns",       phoneticUK: "/tɜːnz/",     phoneticUS: "/tɝːnz/",     meaning: "（turn 的第三人称单数）结果是；变得" },
-      { word: "out",         phoneticUK: "/aʊt/",       phoneticUS: "/aʊt/",       meaning: "出；向外；结束" },
-      { word: "real",        phoneticUK: "/rɪəl/",      phoneticUS: "/riːəl/",     meaning: "真实的；实际的" },
-      { word: "life",        phoneticUK: "/laɪf/",      phoneticUS: "/laɪf/",      meaning: "生活；生命" },
-      { word: "little",      phoneticUK: "/ˈlɪtl/",     phoneticUS: "/ˈlɪtl/",     meaning: "小的；少量的" },
-      { word: "bit",         phoneticUK: "/bɪt/",       phoneticUS: "/bɪt/",       meaning: "一点；少量" },
-      { word: "more",        phoneticUK: "/mɔː(r)/",    phoneticUS: "/mɔːr/",      meaning: "更多的；更" },
-      { word: "complicated", phoneticUK: "/ˈkɒmplɪkeɪtɪd/", phoneticUS: "/ˈkɑːmplɪkeɪtɪd/", meaning: "复杂的；难懂的" },
-      { word: "than",        phoneticUK: "/ðæn/",       phoneticUS: "/ðæn/",       meaning: "比（用于比较）" },
-      { word: "slogan",      phoneticUK: "/ˈsləʊɡən/",  phoneticUS: "/ˈsloʊɡən/",  meaning: "标语；口号" },
-      { word: "bumper",      phoneticUK: "/ˈbʌmpə(r)/", phoneticUS: "/ˈbʌmpər/",   meaning: "保险杠；缓冲物" },
-      { word: "sticker",     phoneticUK: "/ˈstɪkə(r)/", phoneticUS: "/ˈstɪkər/",   meaning: "贴纸；标签" },
-      { word: "messy",       phoneticUK: "/ˈmesi/",     phoneticUS: "/ˈmesi/",     meaning: "混乱的；杂乱的" }
+      {
+        word: "turns",
+        phoneticUK: "/tɜːnz/",
+        phoneticUS: "/tɝːnz/",
+        meaning: "（turn 的第三人称单数）结果是；变得",
+        phrases: ["turns out"]
+      },
+      {
+        word: "out",
+        phoneticUK: "/aʊt/",
+        phoneticUS: "/aʊt/",
+        meaning: "出；向外；结束",
+        phrases: ["turns out"]
+      },
+      {
+        word: "real",
+        phoneticUK: "/rɪəl/",
+        phoneticUS: "/riːəl/",
+        meaning: "真实的；实际的",
+        phrases: ["real life"]
+      },
+      {
+        word: "life",
+        phoneticUK: "/laɪf/",
+        phoneticUS: "/laɪf/",
+        meaning: "生活；生命",
+        phrases: ["real life"]
+      },
+      {
+        word: "little",
+        phoneticUK: "/ˈlɪtl/",
+        phoneticUS: "/ˈlɪtl/",
+        meaning: "小的；少量的",
+        phrases: ["a little bit"]
+      },
+      {
+        word: "bit",
+        phoneticUK: "/bɪt/",
+        phoneticUS: "/bɪt/",
+        meaning: "一点；少量",
+        phrases: ["a little bit"]
+      },
+      {
+        word: "more",
+        phoneticUK: "/mɔː(r)/",
+        phoneticUS: "/mɔːr/",
+        meaning: "更多的；更",
+        phrases: ["more complicated than..."]
+      },
+      {
+        word: "complicated",
+        phoneticUK: "/ˈkɒmplɪkeɪtɪd/",
+        phoneticUS: "/ˈkɑːmplɪkeɪtɪd/",
+        meaning: "复杂的；难懂的",
+        phrases: ["more complicated than..."]
+      },
+      {
+        word: "than",
+        phoneticUK: "/ðæn/",
+        phoneticUS: "/ðæn/",
+        meaning: "比（用于比较）",
+        phrases: ["more complicated than..."]
+      },
+      {
+        word: "bumper",
+        phoneticUK: "/ˈbʌmpə(r)/",
+        phoneticUS: "/ˈbʌmpər/",
+        meaning: "保险杠；缓冲物",
+        phrases: ["bumper sticker"]
+      },
+      {
+        word: "sticker",
+        phoneticUK: "/ˈstɪkə(r)/",
+        phoneticUS: "/ˈstɪkər/",
+        meaning: "贴纸；标签",
+        phrases: ["bumper sticker"]
+      },
+      {
+        word: "messy",
+        phoneticUK: "/ˈmesi/",
+        phoneticUS: "/ˈmesi/",
+        meaning: "混乱的；杂乱的",
+        phrases: ["is messy"]
+      },
+      {
+        word: "is",
+        phoneticUK: "/ɪz/",
+        phoneticUS: "/ɪz/",
+        meaning: "是（be 动词第三人称单数）",
+        phrases: ["is messy"]
+      }
     ];
 
     const container = document.getElementById("wordsContainer");
 
     words.forEach(item => {
+      // 构建词组带翻译的 HTML
+      let phrasesHTML = '';
+      if (item.phrases && item.phrases.length > 0) {
+        const phraseItems = item.phrases.map(p => `
+          <div class="phrase-item">
+            <span class="phrase-en">${p}</span>
+            <span class="phrase-zh">—— ${phraseTranslations[p] || ''}</span>
+          </div>
+        `).join('');
+        phrasesHTML = `
+          <div class="phrases-section">
+            <div class="phrases-title">▶ 相关词组：</div>
+            ${phraseItems}
+          </div>
+        `;
+      }
+
       const card = document.createElement("div");
       card.className = "word-card";
       card.innerHTML = `
-        <div class="word-info">
-          <div class="word-main">${item.word}</div>
-          <div class="phonetic">英 ${item.phoneticUK} &nbsp; 美 ${item.phoneticUS}</div>
-          <div class="meaning">${item.meaning}</div>
-        </div>
+        <div class="word-main">${item.word}</div>
+        <div class="phonetic">英 ${item.phoneticUK} &nbsp; 美 ${item.phoneticUS}</div>
+        <div class="meaning">${item.meaning}</div>
+        ${phrasesHTML}
         <button class="pronounce-btn" onclick="speak('${item.word}')">🔊 发音</button>
       `;
       container.appendChild(card);
@@ -184,13 +312,11 @@
         speechSynthesis.cancel();
       }
       const utterance = new SpeechSynthesisUtterance(word);
-      utterance.lang = 'en-US'; // 使用美式发音（也可设为 'en-GB'）
-      utterance.rate = 1.0;     // 语速
-      utterance.pitch = 1.0;    // 音调
+      utterance.lang = 'en-US';
+      utterance.rate = 1.0;
+      utterance.pitch = 1.0;
       speechSynthesis.speak(utterance);
     }
   </script>
 </body>
-
 </html>
-
