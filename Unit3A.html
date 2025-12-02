@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🏕️ 我能照顾自己 · 全文单词学习</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      color: white;
+      margin-bottom: 30px;
+      padding: 20px;
+      border-radius: 16px;
+      background: rgba(0,0,0,0.2);
+    }
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+    }
+
+    /* 台词区块 */
+    .script-section {
+      background: white;
+      border-radius: 16px;
+      padding: 25px;
+      margin-bottom: 40px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+    .script-title {
+      text-align: center;
+      font-size: 1.3em;
+      color: #2d3436;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    .script-lines {
+      line-height: 1.8;
+      font-size: 1.15em;
+      color: #2c3e50;
+    }
+    .en { color: #2980b9; font-style: italic; }
+    .zh { color: #27ae60; margin-top: 6px; }
+    .line { margin-bottom: 14px; }
+
+    .audio-container {
+      margin: 25px 0;
+      text-align: center;
+    }
+    .audio-container audio {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    /* 单词卡片 */
+    .word-card {
+      background: white;
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .word-info {
+      flex: 1;
+      margin-right: 20px;
+    }
+    .word-main {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #2d3436;
+    }
+    .phonetic {
+      color: #636e72;
+      font-size: 1.1em;
+      margin: 6px 0;
+    }
+    .meaning {
+      color: #00b894;
+      font-size: 1.05em;
+      margin: 6px 0;
+    }
+    .example {
+      font-size: 1em;
+      color: #555;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+    .example-en {
+      font-style: italic;
+      color: #2980b9;
+    }
+    .example-zh {
+      color: #27ae60;
+      margin-top: 4px;
+    }
+    .pronounce-btn {
+      background: #74b9ff;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      white-space: nowrap;
+      align-self: flex-start;
+    }
+    .pronounce-btn:hover {
+      background: #0984e3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>和莱莱一起学——<br>北京版 五年级 上册 九单元 我能照顾自己 · 全文单词学习</h1>
+    </header>
+
+    <!-- 🎬 原声台词 -->
+    <div class="script-section">
+      <div class="script-title">🎧 原声对话（Unit Three: I Can Take Care Of Myself）</div>
+      <div class="script-lines">
+        <div class="line">
+          <span class="en">Ms Wang: Our class will take a two-day camping trip. We'll pick fruit, plant vegetables and set up camps.</span><br>
+          <span class="zh">王老师：我们班将进行一次两天的露营旅行。我们会摘水果、种蔬菜，还会搭帐篷。</span>
+        </div>
+        <div class="line">
+          <span class="en">Students: Great!</span><br>
+          <span class="zh">学生们：太棒了！</span>
+        </div>
+        <div class="line">
+          <span class="en">Ms Wang: We also need to take care of ourselves in these two days. Who would like to go?</span><br>
+          <span class="zh">王老师：这两天我们还需要自己照顾自己。谁想去？</span>
+        </div>
+        <div class="line">
+          <span class="en">Lingling: I'd like to go. I can make my bed and clean my room.</span><br>
+          <span class="zh">玲玲：我想去。我会整理床铺和打扫房间。</span>
+        </div>
+        <div class="line">
+          <span class="en">Ms Wang: Good. Please write down your name.</span><br>
+          <span class="zh">王老师：很好，请写下你的名字。</span>
+        </div>
+        <div class="line">
+          <span class="en">Lingling: Maomao, would you like to join this camping trip? What can you do?</span><br>
+          <span class="zh">玲玲：毛毛，你想参加这次露营吗？你会做什么？</span>
+        </div>
+        <div class="line">
+          <span class="en">Maomao: Yes! I can wash clothes and tidy up the clothes.</span><br>
+          <span class="zh">毛毛：想！我会洗衣服和整理衣物。</span>
+        </div>
+        <div class="line">
+          <span class="en">How about you, Guoguo?</span><br>
+          <span class="zh">果果，你呢？</span>
+        </div>
+        <div class="line">
+          <span class="en">Guoguo: I can cook. Baobao, what can you do? Let's go together.</span><br>
+          <span class="zh">果果：我会做饭。宝宝，你会做什么？我们一起去吧。</span>
+        </div>
+        <div class="line">
+          <span class="en">Baobao: Sorry, I won't go. I need to learn how to take care of myself first.</span><br>
+          <span class="zh">宝宝：对不起，我不去了。我得先学会怎么照顾自己。</span>
+        </div>
+        <div class="line">
+          <span class="en">Lingling: Oh, Baobao. Don't worry. We can help you.</span><br>
+          <span class="zh">玲玲：哦，宝宝，别担心，我们可以帮你。</span>
+        </div>
+      </div>
+
+      <!-- 🔊 音频播放器 -->
+      <div class="audio-container">
+        <audio controls>
+          <source src="https://lailai-english.oss-cn-beijing.aliyuncs.com/11_Unit%2BThree_Lesson%2B9%2BI%2BCan%2BTake%2BCare%2Bof%2BMyself.mp3" type="audio/mpeg">
+          您的浏览器不支持音频播放。
+        </audio>
+        <p style="margin-top:10px; color:#666; font-size:0.9em;">▲ 点击播放原声对话</p>
+      </div>
+    </div>
+
+    <!-- 🔤 所有单词（按首次出现顺序，去重） -->
+    <h2 style="color:white; text-align:center; margin-bottom:20px;">🔤 全文单词表（按出现顺序，无重复）</h2>
+
+    <div id="wordsContainer">
+      <!-- 单词卡片由 JavaScript 生成 -->
+    </div>
+  </div>
+
+  <script>
+    // 按首次出现顺序提取的单词 + 释义 + 音标 + 所在句
+    const wordEntries = [
+      { word: "Our", phoneticUK: "/ɑː(r)/", phoneticUS: "/ɔːr/", meaning: "我们的", en: "Our class will take a two-day camping trip.", zh: "我们班将进行一次两天的露营旅行。" },
+      { word: "class", phoneticUK: "/klɑːs/", phoneticUS: "/klæs/", meaning: "班级", en: "Our class will take a two-day camping trip.", zh: "我们班将进行一次两天的露营旅行。" },
+      { word: "will", phoneticUK: "/wɪl/", phoneticUS: "/wɪl/", meaning: "将要", en: "Our class will take a two-day camping trip.", zh: "我们班将进行一次两天的露营旅行。" },
+      { word: "take", phoneticUK: "/teɪk/", phoneticUS: "/teɪk/", meaning: "进行；拿", en: "Our class will take a two-day camping trip.", zh: "我们班将进行一次两天的露营旅行。" },
+      { word: "a", phoneticUK: "/ə/", phoneticUS: "/ə/", meaning: "一个", en: "Our class will take a two-day camping trip.", zh: "我们班将进行一次两天的露营旅行。" },
+      { word: "two-day", phoneticUK: "/ˈtuː deɪ/", phoneticUS: "/ˈtuː deɪ/", meaning: "为期两天的", en: "Our class will take a two-day camping trip.", zh: "我们班将进行一次两天的露营旅行。" },
+      { word: "camping", phoneticUK: "/ˈkæmpɪŋ/", phoneticUS: "/ˈkæmpɪŋ/", meaning: "露营", en: "Our class will take a two-day camping trip.", zh: "我们班将进行一次两天的露营旅行。" },
+      { word: "trip", phoneticUK: "/trɪp/", phoneticUS: "/trɪp/", meaning: "旅行", en: "Our class will take a two-day camping trip.", zh: "我们班将进行一次两天的露营旅行。" },
+      { word: "We'll", phoneticUK: "/wiːl/", phoneticUS: "/wiːl/", meaning: "我们将（we will）", en: "We'll pick fruit, plant vegetables and set up camps.", zh: "我们会摘水果、种蔬菜，还会搭帐篷。" },
+      { word: "pick", phoneticUK: "/pɪk/", phoneticUS: "/pɪk/", meaning: "采摘", en: "We'll pick fruit, plant vegetables and set up camps.", zh: "我们会摘水果、种蔬菜，还会搭帐篷。" },
+      { word: "fruit", phoneticUK: "/fruːt/", phoneticUS: "/fruːt/", meaning: "水果", en: "We'll pick fruit, plant vegetables and set up camps.", zh: "我们会摘水果、种蔬菜，还会搭帐篷。" },
+      { word: "plant", phoneticUK: "/plɑːnt/", phoneticUS: "/plænt/", meaning: "种植", en: "We'll pick fruit, plant vegetables and set up camps.", zh: "我们会摘水果、种蔬菜，还会搭帐篷。" },
+      { word: "vegetables", phoneticUK: "/ˈvedʒtəblz/", phoneticUS: "/ˈvedʒtəblz/", meaning: "蔬菜", en: "We'll pick fruit, plant vegetables and set up camps.", zh: "我们会摘水果、种蔬菜，还会搭帐篷。" },
+      { word: "and", phoneticUK: "/ænd/", phoneticUS: "/ænd/", meaning: "和", en: "We'll pick fruit, plant vegetables and set up camps.", zh: "我们会摘水果、种蔬菜，还会搭帐篷。" },
+      { word: "set", phoneticUK: "/set/", phoneticUS: "/set/", meaning: "设置；搭建", en: "We'll pick fruit, plant vegetables and set up camps.", zh: "我们会摘水果、种蔬菜，还会搭帐篷。" },
+      { word: "up", phoneticUK: "/ʌp/", phoneticUS: "/ʌp/", meaning: "向上；完成", en: "We'll pick fruit, plant vegetables and set up camps.", zh: "我们会摘水果、种蔬菜，还会搭帐篷。" },
+      { word: "camps", phoneticUK: "/kæmps/", phoneticUS: "/kæmps/", meaning: "营地（复数）", en: "We'll pick fruit, plant vegetables and set up camps.", zh: "我们会摘水果、种蔬菜，还会搭帐篷。" },
+      { word: "Students", phoneticUK: "/ˈstjuːdnts/", phoneticUS: "/ˈstuːdnts/", meaning: "学生们", en: "Students: Great!", zh: "学生们：太棒了！" },
+      { word: "Great", phoneticUK: "/ɡreɪt/", phoneticUS: "/ɡreɪt/", meaning: "太棒了", en: "Students: Great!", zh: "学生们：太棒了！" },
+      { word: "also", phoneticUK: "/ˈɔːlsoʊ/", phoneticUS: "/ˈɔːlsoʊ/", meaning: "也", en: "We also need to take care of ourselves in these two days.", zh: "这两天我们还需要自己照顾自己。" },
+      { word: "need", phoneticUK: "/niːd/", phoneticUS: "/niːd/", meaning: "需要", en: "We also need to take care of ourselves in these two days.", zh: "这两天我们还需要自己照顾自己。" },
+      { word: "to", phoneticUK: "/tu/", phoneticUS: "/tu/", meaning: "到；用于动词不定式", en: "We also need to take care of ourselves in these two days.", zh: "这两天我们还需要自己照顾自己。" },
+      { word: "care", phoneticUK: "/keə(r)/", phoneticUS: "/ker/", meaning: "关心；照料", en: "We also need to take care of ourselves in these two days.", zh: "这两天我们还需要自己照顾自己。" },
+      { word: "of", phoneticUK: "/əv/", phoneticUS: "/əv/", meaning: "……的", en: "We also need to take care of ourselves in these two days.", zh: "这两天我们还需要自己照顾自己。" },
+      { word: "ourselves", phoneticUK: "/ˌaʊəˈselvz/", phoneticUS: "/ˌaʊrˈselvz/", meaning: "我们自己", en: "We also need to take care of ourselves in these two days.", zh: "这两天我们还需要自己照顾自己。" },
+      { word: "in", phoneticUK: "/ɪn/", phoneticUS: "/ɪn/", meaning: "在……里", en: "We also need to take care of ourselves in these two days.", zh: "这两天我们还需要自己照顾自己。" },
+      { word: "these", phoneticUK: "/ðiːz/", phoneticUS: "/ðiːz/", meaning: "这些", en: "We also need to take care of ourselves in these two days.", zh: "这两天我们还需要自己照顾自己。" },
+      { word: "days", phoneticUK: "/deɪz/", phoneticUS: "/deɪz/", meaning: "天（复数）", en: "We also need to take care of ourselves in these two days.", zh: "这两天我们还需要自己照顾自己。" },
+      { word: "Who", phoneticUK: "/huː/", phoneticUS: "/huː/", meaning: "谁", en: "Who would like to go?", zh: "谁想去？" },
+      { word: "would", phoneticUK: "/wʊd/", phoneticUS: "/wʊd/", meaning: "愿意", en: "Who would like to go?", zh: "谁想去？" },
+      { word: "like", phoneticUK: "/laɪk/", phoneticUS: "/laɪk/", meaning: "喜欢；想要", en: "Who would like to go?", zh: "谁想去？" },
+      { word: "go", phoneticUK: "/ɡəʊ/", phoneticUS: "/ɡoʊ/", meaning: "去", en: "Who would like to go?", zh: "谁想去？" },
+      { word: "Lingling", phoneticUK: "/ˈlɪŋlɪŋ/", phoneticUS: "/ˈlɪŋlɪŋ/", meaning: "玲玲（人名）", en: "Lingling: I'd like to go.", zh: "玲玲：我想去。" },
+      { word: "I'd", phoneticUK: "/aɪd/", phoneticUS: "/aɪd/", meaning: "我想（I would）", en: "Lingling: I'd like to go.", zh: "玲玲：我想去。" },
+      { word: "I", phoneticUK: "/aɪ/", phoneticUS: "/aɪ/", meaning: "我", en: "Lingling: I'd like to go.", zh: "玲玲：我想去。" },
+      { word: "can", phoneticUK: "/kæn/", phoneticUS: "/kæn/", meaning: "能够", en: "I can make my bed and clean my room.", zh: "我会整理床铺和打扫房间。" },
+      { word: "make", phoneticUK: "/meɪk/", phoneticUS: "/meɪk/", meaning: "整理（make my bed）", en: "I can make my bed and clean my room.", zh: "我会整理床铺和打扫房间。" },
+      { word: "my", phoneticUK: "/maɪ/", phoneticUS: "/maɪ/", meaning: "我的", en: "I can make my bed and clean my room.", zh: "我会整理床铺和打扫房间。" },
+      { word: "bed", phoneticUK: "/bed/", phoneticUS: "/bed/", meaning: "床", en: "I can make my bed and clean my room.", zh: "我会整理床铺和打扫房间。" },
+      { word: "clean", phoneticUK: "/kliːn/", phoneticUS: "/kliːn/", meaning: "打扫", en: "I can make my bed and clean my room.", zh: "我会整理床铺和打扫房间。" },
+      { word: "room", phoneticUK: "/ruːm/", phoneticUS: "/ruːm/", meaning: "房间", en: "I can make my bed and clean my room.", zh: "我会整理床铺和打扫房间。" },
+      { word: "Ms", phoneticUK: "/mɪz/", phoneticUS: "/mɪz/", meaning: "女士（用于姓氏前）", en: "Ms Wang: Good.", zh: "王老师：很好。" },
+      { word: "Wang", phoneticUK: "/wɒŋ/", phoneticUS: "/wɑːŋ/", meaning: "王（姓氏）", en: "Ms Wang: Good.", zh: "王老师：很好。" },
+      { word: "Good", phoneticUK: "/ɡʊd/", phoneticUS: "/ɡʊd/", meaning: "好的", en: "Ms Wang: Good.", zh: "王老师：很好。" },
+      { word: "Please", phoneticUK: "/pliːz/", phoneticUS: "/pliːz/", meaning: "请", en: "Please write down your name.", zh: "请写下你的名字。" },
+      { word: "write", phoneticUK: "/raɪt/", phoneticUS: "/raɪt/", meaning: "写", en: "Please write down your name.", zh: "请写下你的名字。" },
+      { word: "down", phoneticUK: "/daʊn/", phoneticUS: "/daʊn/", meaning: "写下", en: "Please write down your name.", zh: "请写下你的名字。" },
+      { word: "your", phoneticUK: "/jɔː(r)/", phoneticUS: "/jʊr/", meaning: "你的", en: "Please write down your name.", zh: "请写下你的名字。" },
+      { word: "name", phoneticUK: "/neɪm/", phoneticUS: "/neɪm/", meaning: "名字", en: "Please write down your name.", zh: "请写下你的名字。" },
+      { word: "Maomao", phoneticUK: "/ˈmaʊmaʊ/", phoneticUS: "/ˈmaʊmaʊ/", meaning: "毛毛（人名）", en: "Maomao, would you like to join this camping trip?", zh: "毛毛，你想参加这次露营吗？" },
+      { word: "you", phoneticUK: "/juː/", phoneticUS: "/juː/", meaning: "你", en: "Maomao, would you like to join this camping trip?", zh: "毛毛，你想参加这次露营吗？" },
+      { word: "join", phoneticUK: "/dʒɔɪn/", phoneticUS: "/dʒɔɪn/", meaning: "参加", en: "Maomao, would you like to join this camping trip?", zh: "毛毛，你想参加这次露营吗？" },
+      { word: "this", phoneticUK: "/ðɪs/", phoneticUS: "/ðɪs/", meaning: "这个", en: "Maomao, would you like to join this camping trip?", zh: "毛毛，你想参加这次露营吗？" },
+      { word: "What", phoneticUK: "/wɒt/", phoneticUS: "/wʌt/", meaning: "什么", en: "What can you do?", zh: "你会做什么？" },
+      { word: "do", phoneticUK: "/duː/", phoneticUS: "/duː/", meaning: "做", en: "What can you do?", zh: "你会做什么？" },
+      { word: "Yes", phoneticUK: "/jes/", phoneticUS: "/jes/", meaning: "是的", en: "Yes! I can wash clothes and tidy up the clothes.", zh: "想！我会洗衣服和整理衣物。" },
+      { word: "wash", phoneticUK: "/wɒʃ/", phoneticUS: "/wɑːʃ/", meaning: "洗", en: "Yes! I can wash clothes and tidy up the clothes.", zh: "想！我会洗衣服和整理衣物。" },
+      { word: "clothes", phoneticUK: "/kləʊðz/", phoneticUS: "/kloʊðz/", meaning: "衣服", en: "Yes! I can wash clothes and tidy up the clothes.", zh: "想！我会洗衣服和整理衣物。" },
+      { word: "tidy", phoneticUK: "/ˈtaɪdi/", phoneticUS: "/ˈtaɪdi/", meaning: "整理", en: "Yes! I can wash clothes and tidy up the clothes.", zh: "想！我会洗衣服和整理衣物。" },
+      { word: "the", phoneticUK: "/ðə/", phoneticUS: "/ðə/", meaning: "这/那（定冠词）", en: "Yes! I can wash clothes and tidy up the clothes.", zh: "想！我会洗衣服和整理衣物。" },
+      { word: "How", phoneticUK: "/haʊ/", phoneticUS: "/haʊ/", meaning: "怎样", en: "How about you, Guoguo?", zh: "果果，你呢？" },
+      { word: "about", phoneticUK: "/əˈbaʊt/", phoneticUS: "/əˈbaʊt/", meaning: "关于", en: "How about you, Guoguo?", zh: "果果，你呢？" },
+      { word: "Guoguo", phoneticUK: "/ˈɡwɔːɡwɔː/", phoneticUS: "/ˈɡwɔːɡwɔː/", meaning: "果果（人名）", en: "How about you, Guoguo?", zh: "果果，你呢？" },
+      { word: "cook", phoneticUK: "/kʊk/", phoneticUS: "/kʊk/", meaning: "做饭", en: "I can cook.", zh: "我会做饭。" },
+      { word: "Baobao", phoneticUK: "/ˈbaʊbaʊ/", phoneticUS: "/ˈbaʊbaʊ/", meaning: "宝宝（人名）", en: "Baobao, what can you do?", zh: "宝宝，你会做什么？" },
+      { word: "Sorry", phoneticUK: "/ˈsɒri/", phoneticUS: "/ˈsɔːri/", meaning: "对不起", en: "Sorry, I won't go.", zh: "对不起，我不去了。" },
+      { word: "won't", phoneticUK: "/wəʊnt/", phoneticUS: "/woʊnt/", meaning: "不会（will not）", en: "Sorry, I won't go.", zh: "对不起，我不去了。" },
+      { word: "learn", phoneticUK: "/lɜːn/", phoneticUS: "/lɝːn/", meaning: "学习", en: "I need to learn how to take care of myself first.", zh: "我得先学会怎么照顾自己。" },
+      { word: "how", phoneticUK: "/haʊ/", phoneticUS: "/haʊ/", meaning: "如何", en: "I need to learn how to take care of myself first.", zh: "我得先学会怎么照顾自己。" },
+      { word: "first", phoneticUK: "/fɜːst/", phoneticUS: "/fɝːst/", meaning: "首先", en: "I need to learn how to take care of myself first.", zh: "我得先学会怎么照顾自己。" },
+      { word: "Oh", phoneticUK: "/əʊ/", phoneticUS: "/oʊ/", meaning: "哦", en: "Oh, Baobao. Don't worry.", zh: "哦，宝宝，别担心。" },
+      { word: "Don't", phoneticUK: "/dəʊnt/", phoneticUS: "/doʊnt/", meaning: "不要（do not）", en: "Oh, Baobao. Don't worry.", zh: "哦，宝宝，别担心。" },
+      { word: "worry", phoneticUK: "/ˈwʌri/", phoneticUS: "/ˈwɜːri/", meaning: "担心", en: "Oh, Baobao. Don't worry.", zh: "哦，宝宝，别担心。" },
+      { word: "We", phoneticUK: "/wiː/", phoneticUS: "/wiː/", meaning: "我们", en: "We can help you.", zh: "我们可以帮你。" },
+      { word: "help", phoneticUK: "/help/", phoneticUS: "/help/", meaning: "帮助", en: "We can help you.", zh: "我们可以帮你。" }
+    ];
+
+    const container = document.getElementById("wordsContainer");
+
+    wordEntries.forEach(item => {
+      const safeWord = item.word.replace(/'/g, "\\'");
+      const card = document.createElement("div");
+      card.className = "word-card";
+      card.innerHTML = `
+        <div class="word-info">
+          <div class="word-main">${item.word}</div>
+          <div class="phonetic">英 ${item.phoneticUK} &nbsp; 美 ${item.phoneticUS}</div>
+          <div class="meaning">${item.meaning}</div>
+          <div class="example">
+            <div class="example-en">${item.en}</div>
+            <div class="example-zh">${item.zh}</div>
+          </div>
+        </div>
+        <button class="pronounce-btn" onclick="speak('${safeWord}')">🔊 发音</button>
+      `;
+      container.appendChild(card);
+    });
+
+    function speak(word) {
+      if (speechSynthesis.speaking) {
+        speechSynthesis.cancel();
+      }
+      const utterance = new SpeechSynthesisUtterance(word);
+      utterance.lang = 'en-US';
+      utterance.rate = 1.0;
+      utterance.pitch = 1.0;
+      speechSynthesis.speak(utterance);
+    }
+  </script>
+</body>
+
+</html>
